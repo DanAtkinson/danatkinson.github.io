@@ -13,14 +13,13 @@ The post detailed a very simple but cleverly crafted method of giving the user a
 <meta property="og:site_name" content="Dan Atkinson">
 <meta property="og:description" content="This is based on a post on Life Plus Linux entitled Look before you paste from website to terminal.
 The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign st">
-<meta property="og:image" content="https://i.imgur.com/wAsCWqP.gif">
-<meta property="og:image" content="http://i.imgur.com/XpkoqnJ.gif">
-<meta property="og:updated_time" content="2017-01-27T00:40:42.000Z">
+<meta property="og:image" content="https://i.imgur.com/XpkoqnJ.gif">
+<meta property="og:updated_time" content="2017-01-27T14:32:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to hack a trusting Windows developer's machine">
 <meta name="twitter:description" content="This is based on a post on Life Plus Linux entitled Look before you paste from website to terminal.
 The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign st">
-<meta name="twitter:image" content="https://i.imgur.com/wAsCWqP.gif">
+<meta name="twitter:image" content="https://i.imgur.com/XpkoqnJ.gif">
 <meta name="twitter:creator" content="@danbo">
 <link rel="publisher" href="danatkinson">
 <meta property="fb:admins" content="568751873">
@@ -92,7 +91,7 @@ ga('send', 'pageview');
         <section id="main"><article id="post-How-to-hack-a-trusting-developer-s-machine" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/26/How-to-hack-a-trusting-developer-s-machine/" class="article-date">
-  <time datetime="2017-01-26T22:49:14.000Z" itemprop="datePublished">Thursday, January 26th 2017</time>
+  <time datetime="2017-01-26T22:49:00.000Z" itemprop="datePublished">Thursday, January 26th 2017</time>
 </a>
     
   </div>
@@ -114,14 +113,12 @@ ga('send', 'pageview');
         <p>This is based on a post on <a href="https://lifepluslinux.blogspot.co.uk/2017/01/look-before-you-paste-from-website-to.html" target="_blank" rel="external">Life Plus Linux</a> entitled <code>Look before you paste from website to terminal</code>.</p>
 <p>The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign string to execute into their Linux terminal window.</p>
 <p>In this instance, the command looked like <code>ls -lat</code>. This shows all files in the current directory ordered by date. However, between <code>ls</code> and <code>-lat</code> was some hidden text which, when pasted directly into the terminal, did something quite interesting.</p>
-<p><img src="https://i.imgur.com/wAsCWqP.gif" alt=""></p>
 <p>I wondered to myself whether this was possible on Windows and so I set about doing exactly that. About 5 minutes later (yes, it wasn’t that hard) I came up with the following <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">example</a> which you can try out for yourself. Go ahead and copy and paste the below code sample into your command prompt!</p>
 <p><code style="padding:10px;"><span>dir</span> <span style="color:#EEE;position:absolute;left:-1000px;top:-1000px;height:0px;z-index:-100;display:inline-block;">&amp;<br>  cls &amp; echo Haha! You gave me access to your computer! &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ##                        (10%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ###                       (20%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #####                     (33%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #######                   (40%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ##########                (50%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #############             (66%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #####################     (99%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #######################   (100%) &amp;<br>      cls &amp; echo Hacking complete. &amp;<br>      echo Use GUI interface using visual basic to track my IP &amp;<br>      ping 127.0.0.1 -n 5 &gt; nul &amp;<br>      cls<br>      dir </span><span>/w /p<br></span></code></p>
-<p>I promise you that <strong><em>this</em></strong> example is benign, but you should check the contents of your clipboard just to be sure.</p>
-<p>Below is how it should look if Markdown doesn’t fluff the HTML too much.</p>
-<p><img src="http://i.imgur.com/XpkoqnJ.gif" alt=""></p>
-<p>My blog uses Markdown, so the markup might be a bit iffy, so I created a fully-working  <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">Github Gist</a> example.</p>
-<p>Below is the HTML for the <code>dir /w /p</code> example:</p>
+<p>I promise you that <strong><em>this</em></strong> example is benign, but you should check the contents of your clipboard just to be sure. Below is how it should look if my Markdown blog doesn’t fluff the HTML too much.</p>
+<p><img src="https://i.imgur.com/XpkoqnJ.gif" alt=""></p>
+<p>I also created a fully-functioning  <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">Github Gist</a> example which you can try locally.</p>
+<p>And, if you’re interested, here is the HTML for the <code>dir /w /p</code> example:</p>
 <pre><code>&lt;code style=&quot;background-color:#eeeeee;padding:10px;&quot;&gt;
   &lt;span&gt;dir&lt;/span&gt;
   &lt;span style=&quot;color:#F3F5F6;position:absolute;left:-100px;top:-100px;height:0px;z-index:-100;display:inline-block;&quot;&gt;&amp;amp;
@@ -154,7 +151,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/" data-id="ciyfwm5bt0000vgt5fj1sz4lg" class="article-share-link">Share</a>
+      <a data-url="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/" data-id="ciyfws6j80000bgt5wu6f28u4" class="article-share-link">Share</a>
       
         <a href="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/#disqus_thread" class="article-comment-link">Comments</a>
       
