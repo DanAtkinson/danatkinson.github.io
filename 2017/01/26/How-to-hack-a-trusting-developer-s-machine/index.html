@@ -5,20 +5,20 @@
   
   <title>How to hack a trusting Windows developer&#39;s machine | Dan Atkinson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This is based on a post on Life Plus Linux entitled Look before you paste from website to terminal.
-The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign st">
+  <meta name="description" content="This is based on a post on Life Plus Linux entitled “Look before you paste from website to terminal”.
+The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to hack a trusting Windows developer's machine">
 <meta property="og:url" content="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/index.html">
 <meta property="og:site_name" content="Dan Atkinson">
-<meta property="og:description" content="This is based on a post on Life Plus Linux entitled Look before you paste from website to terminal.
-The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign st">
+<meta property="og:description" content="This is based on a post on Life Plus Linux entitled “Look before you paste from website to terminal”.
+The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign">
 <meta property="og:image" content="https://i.imgur.com/XpkoqnJ.gif">
-<meta property="og:updated_time" content="2017-01-27T14:32:47.000Z">
+<meta property="og:updated_time" content="2017-01-27T23:57:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to hack a trusting Windows developer's machine">
-<meta name="twitter:description" content="This is based on a post on Life Plus Linux entitled Look before you paste from website to terminal.
-The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign st">
+<meta name="twitter:description" content="This is based on a post on Life Plus Linux entitled “Look before you paste from website to terminal”.
+The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign">
 <meta name="twitter:image" content="https://i.imgur.com/XpkoqnJ.gif">
 <meta name="twitter:creator" content="@danbo">
 <link rel="publisher" href="danatkinson">
@@ -77,9 +77,9 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://danatkinson.github.io"></form>
@@ -110,15 +110,18 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This is based on a post on <a href="https://lifepluslinux.blogspot.co.uk/2017/01/look-before-you-paste-from-website-to.html" target="_blank" rel="external">Life Plus Linux</a> entitled <code>Look before you paste from website to terminal</code>.</p>
+        <p>This is based on a post on <a href="https://lifepluslinux.blogspot.co.uk/2017/01/look-before-you-paste-from-website-to.html" target="_blank" rel="external">Life Plus Linux</a> entitled <em>“Look before you paste from website to terminal”</em>.</p>
 <p>The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign string to execute into their Linux terminal window.</p>
-<p>In this instance, the command looked like <code>ls -lat</code>. This shows all files in the current directory ordered by date. However, between <code>ls</code> and <code>-lat</code> was some hidden text which, when pasted directly into the terminal, did something quite interesting.</p>
-<p>I wondered to myself whether this was possible on Windows and so I set about doing exactly that. About 5 minutes later (yes, it wasn’t that hard) I came up with the following <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">example</a> which you can try out for yourself. Go ahead and copy and paste the below code sample into your command prompt!</p>
+<p>In this instance, the command looked like <code>ls -lat</code>. This shows all files in the current directory ordered by date. However, between <code>ls</code> and <code>-lat</code> was some text, hidden by some fairly simple CSS. When the text is pasted directly into the terminal, did something the user probably didn’t expect, or indeed want.</p>
+<p>I wondered to myself whether this was possible on Windows and so I set about doing exactly that. Not long after, I came up with the following <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">example</a> which you can try out for yourself.</p>
+<p><strong>Go ahead and copy and paste the below into your command prompt:</strong></p>
 <p><code style="padding:10px;"><span>dir</span> <span style="color:#EEE;position:absolute;left:-1000px;top:-1000px;height:0px;z-index:-100;display:inline-block;">&amp;<br>  cls &amp; echo Haha! You gave me access to your computer! &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ##                        (10%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ###                       (20%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #####                     (33%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #######                   (40%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ##########                (50%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #############             (66%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #####################     (99%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #######################   (100%) &amp;<br>      cls &amp; echo Hacking complete. &amp;<br>      echo Use GUI interface using visual basic to track my IP &amp;<br>      ping 127.0.0.1 -n 5 &gt; nul &amp;<br>      cls<br>      dir </span><span>/w /p<br></span></code></p>
-<p>I promise you that <strong><em>this</em></strong> example is benign, but you should check the contents of your clipboard just to be sure. Below is how it should look if my Markdown blog doesn’t fluff the HTML too much.</p>
+<p>I assure you that <strong><em>this</em></strong> example is safe and will do no harm to your computer, but you should check the contents of your clipboard just to be sure. Below is how it should look if my Markdown blog doesn’t fluff the HTML too much.</p>
 <p><img src="https://i.imgur.com/XpkoqnJ.gif" alt=""></p>
-<p>I also created a fully-functioning  <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">Github Gist</a> example which you can try locally.</p>
-<p>And, if you’re interested, here is the HTML for the <code>dir /w /p</code> example:</p>
+<p>Apart from the fact that your command window started spitting out text you weren’t expecting, you might also notice that you didn’t have to press enter/return - Windows actually interprets the line breaks as new lines and executes it accordingly. So, unless you examine your clipboard contents first in a text editor like Notepad, you could be executing something that can cause <strong><em>very serious damage</em></strong> to your machine.</p>
+<p>Whilst, that little example above is jokey, it’s really not too difficult to take it and turn it into something far more <a href="https://en.wikipedia.org/wiki/Fork_bomb" target="_blank" rel="external">malicious</a>. Given the propensity for many developers to use a command prompt with administrative privileges, the possibilities are somewhat worrying.</p>
+<p>It’s far too easy for a developer to simply copy and paste code into a command prompt. This is even more so when there are sites like <a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a> which are proponents of doing this (full disclosure, I’m a member of the <a href="https://github.com/orgs/chocolatey/people" target="_blank" rel="external">Chocolatey organisation</a>).</p>
+<p>If you’re interested, I created a fully-functioning  <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">Github Gist</a> example which you can try locally. And here is the HTML for the <code>dir /w /p</code> example.</p>
 <pre><code>&lt;code style=&quot;background-color:#eeeeee;padding:10px;&quot;&gt;
   &lt;span&gt;dir&lt;/span&gt;
   &lt;span style=&quot;color:#F3F5F6;position:absolute;left:-100px;top:-100px;height:0px;z-index:-100;display:inline-block;&quot;&gt;&amp;amp;
@@ -147,13 +150,13 @@ ga('send', 'pageview');
   &lt;/span&gt;
   &lt;span&gt;/w /p&lt;br&gt;&lt;/span&gt;
 &lt;/code&gt;
-</code></pre><h3 id="Tl-dr-Always-check-the-command-being-pasted-is-actually-the-command-you’re-expecting-to-execute"><a href="#Tl-dr-Always-check-the-command-being-pasted-is-actually-the-command-you’re-expecting-to-execute" class="headerlink" title="Tl;dr Always check the command being pasted is actually the command you’re expecting to execute"></a>Tl;dr Always check the command being pasted is actually the command you’re expecting to execute</h3>
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/" data-id="ciyfwt3090001gkt5rwoou79q" class="article-share-link">Partager</a>
+      <a data-url="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/" data-id="ciyggx8uh000014t5knjuuzuu" class="article-share-link">Share</a>
       
-        <a href="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/#disqus_thread" class="article-comment-link">Commentaires</a>
+        <a href="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -164,7 +167,7 @@ ga('send', 'pageview');
   
   
     <a href="/2017/01/26/Saluton-Mondo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Saluton, Mondo!</div>
     </a>
   
@@ -203,7 +206,7 @@ ga('send', 'pageview');
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -228,7 +231,7 @@ ga('send', 'pageview');
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Dan Atkinson<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
