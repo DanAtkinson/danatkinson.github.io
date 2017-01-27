@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dan Atkinson</title>
+  <subtitle>Musings by me</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://danatkinson.github.io/"/>
+  <updated>2017-01-27T00:40:42.000Z</updated>
+  <id>http://danatkinson.github.io/</id>
+  
+  <author>
+    <name>Dan Atkinson</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to hack a trusting Windows developer&#39;s machine</title>
+    <link href="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/"/>
+    <id>http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/</id>
+    <published>2017-01-26T22:49:14.000Z</published>
+    <updated>2017-01-27T00:40:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is based on a post on <a href="https://lifepluslinux.blogspot.co.uk/2017/01/look-before-you-paste-from-website-to.html" target="_blank" rel="external">Life Plus Linux</a> entitled <code>Look before you paste from website to terminal</code>.</p>
+<p>The post detailed a very simple but cleverly crafted method of giving the user a seemingly benign string to execute into their Linux terminal window.</p>
+<p>In this instance, the command looked like <code>ls -lat</code>. This shows all files in the current directory ordered by date. However, between <code>ls</code> and <code>-lat</code> was some hidden text which, when pasted directly into the terminal, did something quite interesting.</p>
+<p><img src="https://i.imgur.com/wAsCWqP.gif" alt=""></p>
+<p>I wondered to myself whether this was possible on Windows and so I set about doing exactly that. About 5 minutes later (yes, it wasn’t that hard) I came up with the following <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">example</a> which you can try out for yourself. Go ahead and copy and paste the below code sample into your command prompt!</p>
+<p><code style="padding:10px;"><span>dir</span> <span style="color:#EEE;position:absolute;left:-1000px;top:-1000px;height:0px;z-index:-100;display:inline-block;">&amp;<br>  cls &amp; echo Haha! You gave me access to your computer! &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ##                        (10%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ###                       (20%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #####                     (33%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #######                   (40%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking ##########                (50%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #############             (66%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #####################     (99%) &amp;<br>      ping 127.0.0.1 -n 2 &gt; nul &amp;<br>      cls &amp; echo h4cking #######################   (100%) &amp;<br>      cls &amp; echo Hacking complete. &amp;<br>      echo Use GUI interface using visual basic to track my IP &amp;<br>      ping 127.0.0.1 -n 5 &gt; nul &amp;<br>      cls<br>      dir </span><span>/w /p<br></span></code></p>
+<p>I promise you that <strong><em>this</em></strong> example is benign, but you should check the contents of your clipboard just to be sure.</p>
+<p>Below is how it should look if Markdown doesn’t fluff the HTML too much.</p>
+<p><img src="http://i.imgur.com/XpkoqnJ.gif" alt=""></p>
+<p>My blog uses Markdown, so the markup might be a bit iffy, so I created a fully-working  <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">Github Gist</a> example.</p>
+<p>Below is the HTML for the <code>dir /w /p</code> example:</p>
+<pre><code>&lt;code style=&quot;background-color:#eeeeee;padding:10px;&quot;&gt;
+  &lt;span&gt;dir&lt;/span&gt;
+  &lt;span style=&quot;color:#F3F5F6;position:absolute;left:-100px;top:-100px;height:0px;z-index:-100;display:inline-block;&quot;&gt;&amp;amp;
+    cls &amp;amp; echo Haha! You gave me access to your computer! &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking ##                        (10%) &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking ###                       (20%) &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking #####                     (33%) &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking #######                   (40%) &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking ##########                (50%) &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking #############             (66%) &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking #####################     (99%) &amp;amp;
+    ping 127.0.0.1 -n 2 &amp;gt; nul &amp;amp;
+    cls &amp;amp; echo h4cking #######################   (100%) &amp;amp;
+    cls &amp;amp; echo Hacking complete. &amp;amp;
+    echo Use GUI interface using visual basic to track my IP &amp;amp;
+    ping 127.0.0.1 -n 5 &amp;gt; nul &amp;amp;
+    cls 
+    &lt;br&gt;dir
+  &lt;/span&gt;
+  &lt;span&gt;/w /p&lt;br&gt;&lt;/span&gt;
+&lt;/code&gt;
+</code></pre><h3 id="Tl-dr-Always-check-the-command-being-pasted-is-actually-the-command-you’re-expecting-to-execute"><a href="#Tl-dr-Always-check-the-command-being-pasted-is-actually-the-command-you’re-expecting-to-execute" class="headerlink" title="Tl;dr Always check the command being pasted is actually the command you’re expecting to execute"></a>Tl;dr Always check the command being pasted is actually the command you’re expecting to execute</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is based on a post on &lt;a href=&quot;https://lifepluslinux.blogspot.co.uk/2017/01/look-before-you-paste-from-website-to.html&quot; target=&quot;_bla
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Saluton, Mondo!</title>
+    <link href="http://danatkinson.github.io/2017/01/26/Saluton-Mondo/"/>
+    <id>http://danatkinson.github.io/2017/01/26/Saluton-Mondo/</id>
+    <published>2017-01-26T21:40:00.000Z</published>
+    <updated>2017-01-26T22:27:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Or ‘Hello, World’!</p>
+<p>I remember the first time I used those words. It was October 2003. After dabbling in programming for a few years, I finally took the plunge and decided to make a career out of it by signing up to do a computing course - HND Computing (Software Engineering) - at <a href="http://www.hull-college.ac.uk" target="_blank" rel="external">Hull College</a> followed by a top-up year to BSc at the <a href="https://www.lincoln.ac.uk/" target="_blank" rel="external">University of Lincoln</a>.</p>
+<p>I’d been to Hull College a few years previous to do a GNVQ in Advanced Science. I ended up getting accepted to a course in Aberdeen but decided that I’d make more money working at McDonald’s as a manager than I would as a fully qualified geneticist, so I followed the money until I finally realised how soul-sucking McDonald’s was.</p>
+<p>But I digress…</p>
+<p>I’ve accumulated several programming books over the years. My favourite is still <a href="https://www.amazon.co.uk/d/Books/Software-Engineering-Ian-Sommerville/0137035152" target="_blank" rel="external">Software Engineering</a> by Ian Sommerville. It’s required reading on practically any course. My first, however, was a book about Java. I forget the name of it, and a quick search of my Amazon order history going back to 2002 doesn’t show it so I must have bought it in one of those old-timey bookshops people used to go to.</p>
+<p>In it, were the immortal words at the top of this post. <code>Saluton, Mondo!</code>. Even now, I still prefer those over Hello, World. No idea why.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Or ‘Hello, World’!&lt;/p&gt;
+&lt;p&gt;I remember the first time I used those words. It was October 2003. After dabbling in programming for a few year
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
