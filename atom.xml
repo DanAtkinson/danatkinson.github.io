@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://danatkinson.github.io/"/>
-  <updated>2017-01-28T00:46:05.000Z</updated>
+  <updated>2017-01-28T01:22:30.000Z</updated>
   <id>http://danatkinson.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/"/>
     <id>http://danatkinson.github.io/2017/01/26/How-to-hack-a-trusting-developer-s-machine/</id>
     <published>2017-01-26T22:49:00.000Z</published>
-    <updated>2017-01-28T00:46:05.000Z</updated>
+    <updated>2017-01-28T01:22:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>This is based on a post on <a href="https://lifepluslinux.blogspot.co.uk/2017/01/look-before-you-paste-from-website-to.html" target="_blank" rel="external">Life Plus Linux</a> entitled <em>“Look before you paste from website to terminal”</em>. It details a very simple but cleverly crafted method of giving the user a seemingly benign string to execute into their Linux terminal window with <a href="https://en.wikipedia.org/wiki/CSS" target="_blank" rel="external">CSS</a> used to hide extra commands.</p>
 <p>In this instance, the command looked like <code>ls -lat</code>. This shows all files in the current directory ordered by date. However, between <code>ls</code> and <code>-lat</code> was some text, hidden by some fairly simple CSS. When the text is pasted directly into the terminal, did something the user probably didn’t expect, or indeed want.</p>
@@ -32,9 +32,9 @@
 <p>Apart from the fact that your command window started spitting out text you weren’t expecting, you might also notice that you didn’t have to press enter/return - Windows actually interprets the line breaks as new lines and executes it accordingly. So, unless you examine your clipboard contents first in a text editor like Notepad, you could be executing something that can cause <strong><em>very serious damage</em></strong> to your machine.</p>
 <p>Whilst, that little example above is jokey, it’s not difficult to craft yourself with some basic CSS, and then turn it into something far more <a href="https://en.wikipedia.org/wiki/Fork_bomb" target="_blank" rel="external">malicious</a>. Given that many developers (including myself) use a command prompt with administrative privileges, the possibilities are somewhat worrying.</p>
 <p><strong><em>And so here, it the rant…</em></strong></p>
-<p>It’s far too easy for a lazy, novice or trusting developer to simply paste code pulled from a website like <a href="https://www.stackoverflow.com" target="_blank" rel="external">Stack Overflow</a>* into a command prompt and execute it without understanding what it could do. Furthermore, Windows offers absolutely <strong>no guidance</strong> about this whatsoever.</p>
-<p>If you run <a href="http://cmder.net/" target="_blank" rel="external">Cmder</a> though, you’ll actually get two warnings. The <a href="https://i.imgur.com/D5tTktH.png" target="_blank" rel="external">first</a> will let you know that it’s been given multi-line contents which will force the command prompt to execute them. The <a href="https://i.imgur.com/B7H1pMd.png" target="_blank" rel="external">second</a> informs you that you’re pasting a long clipboard entry into the console. Both should be red flags given that you should have a reasonable idea that the 10-character long sample is actually nearly 1000 characters!</p>
+<p>It’s far too easy for a lazy, novice or trusting developer to simply paste code pulled from a website like <a href="https://www.stackoverflow.com" target="_blank" rel="external">Stack Overflow</a>* into a command prompt and execute it without understanding what it could do. Furthermore, Windows offers absolutely <strong>no guidance</strong> whatsoever when it comes to pasting potentially dangerous commands into the prompt.</p>
 <p>This is especially true when there are sites like <a href="https://chocolatey.org/" target="_blank" rel="external">Chocolatey</a>** that tell you to do exactly this!</p>
+<p>If you run <a href="http://cmder.net/" target="_blank" rel="external">Cmder</a> and try to paste the above example in, you’ll actually get two warnings, you lucky bugger! The <a href="https://i.imgur.com/D5tTktH.png" target="_blank" rel="external">first</a> will let you know that it’s been given multi-line contents which will force the command prompt to execute them. The <a href="https://i.imgur.com/B7H1pMd.png" target="_blank" rel="external">second</a> informs you that you’re pasting a long clipboard entry into the console and executing the command may lock the console. Both should be red flags given that you should have a reasonable idea that the 10-character long sample is actually nearly 1000 characters! In both cases, you can choose to cancel, which would prevent this from happening.</p>
 <p>If you’re interested, I created a fully-functioning <a href="https://plnkr.co/2DrRyq" target="_blank" rel="external">Plunker</a> and <a href="https://gist.github.com/DanAtkinson/e4e333e1fa40f18a565974481fdced34" target="_blank" rel="external">Github Gist</a> example which you can try for yourself. And here is the HTML for the <code>dir /w /p</code> example.</p>
 <pre><code>&lt;code style=&quot;padding:10px;&quot;&gt;
   &lt;span&gt;dir&lt;/span&gt;
@@ -66,8 +66,8 @@
   &lt;/span&gt;
   &lt;span&gt;/w /p&lt;br&gt;&lt;/span&gt;
 &lt;/code&gt;
-</code></pre><h5 id="Tl-dr-Do-not-copy-paste-commands-from-websites-into-your-command-prompt-without-examining-the-clipboard-contents-FIRST"><a href="#Tl-dr-Do-not-copy-paste-commands-from-websites-into-your-command-prompt-without-examining-the-clipboard-contents-FIRST" class="headerlink" title="Tl:dr Do not copy/paste commands from websites into your command prompt without examining the clipboard contents FIRST!"></a>Tl:dr Do not copy/paste commands from websites into your command prompt without examining the clipboard contents FIRST!</h5><p>* I singled out Stack Overflow here as an example of a site which developers frequently copy and execute code from. I’m <strong><em>not</em></strong> suggesting that the Stack Overflow website allows malicious users to craft code samples in such a way as above in order to execute this. That being said, Plunker is often used in answers to provide a more complete answer when HTML, CSS and JS are used.</p>
-<p>** Full disclosure: I’m a member of the <a href="https://github.com/orgs/chocolatey/people" target="_blank" rel="external">Chocolatey organisation</a>).</p>
+</code></pre><h5 id="Tl-dr-Do-not-copy-paste-commands-from-websites-into-your-command-prompt-without-examining-the-clipboard-contents-FIRST"><a href="#Tl-dr-Do-not-copy-paste-commands-from-websites-into-your-command-prompt-without-examining-the-clipboard-contents-FIRST" class="headerlink" title="Tl:dr Do not copy/paste commands from websites into your command prompt without examining the clipboard contents FIRST!"></a>Tl:dr Do not copy/paste commands from websites into your command prompt without examining the clipboard contents FIRST!</h5><p>* I singled out Stack Overflow here as an example of a site which developers frequently copy and execute code from. I’m <strong><em>not</em></strong> suggesting that the Stack Overflow website allows malicious users to craft code samples in such a way as above in order to execute this. That being said, Plunker is often used to provide a more complete answer when HTML, CSS and JS are involved. As shown above, this ‘problem’ can and will occur on Plunker.</p>
+<p>** Full disclosure: I’m a member of the <a href="https://github.com/orgs/chocolatey/people" target="_blank" rel="external">Chocolatey organisation</a>.</p>
 ]]></content>
     
     <summary type="html">
